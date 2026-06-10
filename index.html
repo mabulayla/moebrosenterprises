@@ -9,11 +9,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #0e0e0e;
-      --white: #f9f9f7;
-      --accent: #c8a96e;
-      --mid: #5a5a5a;
-      --border: #e2e2dd;
+      --black:   #0e0e0e;
+      --white:   #f9f9f7;
+      --accent:  #c8a96e;
+      --mid:     #5a5a5a;
+      --border:  #e2e2dd;
+      --ou-purple: #5858C8;
+      --ou-bg:     #EDEAFF;
+      --ou-border: rgba(88,88,200,0.28);
     }
 
     html { scroll-behavior: smooth; }
@@ -29,203 +32,165 @@
     /* NAV */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 48px;
-      background: rgba(249,249,247,0.92);
-      backdrop-filter: blur(8px);
+      top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 48px;
+      background: rgba(249,249,247,0.95);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.01em;
-      color: var(--black);
+      display: flex; align-items: center; gap: 10px;
       text-decoration: none;
     }
-
+    .nav-logo img {
+      height: 38px; width: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .nav-logo-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem; letter-spacing: 0.01em;
+      color: var(--black);
+    }
     .nav-contact {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--mid);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--mid); text-decoration: none;
+      letter-spacing: 0.06em; text-transform: uppercase;
       transition: color 0.2s;
     }
     .nav-contact:hover { color: var(--black); }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 48px 80px;
-      max-width: 900px;
+      padding: 120px 48px 56px;
+      max-width: 860px;
+      display: flex; flex-direction: column; gap: 20px;
     }
-
     .hero-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 28px;
     }
-
-    .hero-brand {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(3.2rem, 9vw, 7.5rem);
-      line-height: 1.0;
-      color: var(--black);
-      margin-bottom: 32px;
-      max-width: 900px;
-    }
-
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      line-height: 1.1;
-      color: var(--black);
-      margin-bottom: 28px;
-      max-width: 720px;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.0; color: var(--black);
     }
-
     .hero-sub {
-      font-size: 1.05rem;
-      color: var(--mid);
-      max-width: 480px;
-      line-height: 1.75;
+      font-size: 1rem; color: var(--mid);
+      max-width: 420px; line-height: 1.8;
     }
-
     .divider {
-      width: 48px;
-      height: 1px;
+      width: 40px; height: 1px;
       background: var(--accent);
-      margin: 60px 0;
+      margin: 4px 0;
     }
 
     /* VENTURES */
-    .ventures {
-      padding: 0 48px 120px;
-    }
-
+    .ventures { padding: 0 48px 80px; }
     .section-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 48px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 24px;
     }
-
     .venture-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
+      display: grid; grid-template-columns: 1fr 1fr;
       border: 1px solid var(--border);
     }
-
     .venture-card {
-      padding: 48px 40px;
+      padding: 40px 36px;
       border: 1px solid var(--border);
       background: var(--white);
-      transition: background 0.25s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      transition: background 0.2s;
+      text-decoration: none; color: inherit; display: block;
     }
     .venture-card:hover { background: #f0efe9; }
+    .venture-card-static { cursor: default; }
+    .venture-card-static:hover { background: var(--white); }
+
+    /* OFFUNIT card */
+    .venture-card-offunit {
+      background: var(--ou-bg);
+      border-color: var(--ou-border);
+    }
+    .venture-card-offunit:hover { background: #e4e0ff; }
+    .venture-card-offunit .venture-tag {
+      color: var(--ou-purple); border-color: var(--ou-purple);
+    }
+    .venture-card-offunit h2 { color: var(--ou-purple); }
+    .venture-card-offunit .venture-arrow { color: var(--ou-purple); }
+
+    .venture-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .venture-card-logo {
+      height: 52px; width: 52px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
 
     .venture-tag {
       display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 3px 10px;
-      border-radius: 2px;
-      margin-bottom: 20px;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent);
+      padding: 3px 9px; border-radius: 2px;
+      margin-bottom: 16px;
     }
-
     .venture-card h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-      color: var(--black);
+      font-size: 1.7rem; margin-bottom: 10px; color: var(--black);
     }
-
     .venture-card p {
-      font-size: 0.95rem;
-      color: var(--mid);
-      line-height: 1.7;
+      font-size: 0.92rem; color: var(--mid); line-height: 1.72;
     }
-
     .venture-arrow {
-      display: inline-block;
-      margin-top: 24px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      display: inline-block; margin-top: 20px;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--black);
     }
-    .venture-arrow::after {
-      content: ' →';
-    }
+    .venture-arrow::after { content: ' →'; }
 
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
-      padding: 40px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
+      padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
     }
-
+    .footer-left {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .footer-logo {
+      height: 28px; width: 28px;
+      border-radius: 50%; object-fit: cover; opacity: 0.8;
+    }
     .footer-name {
       font-family: 'DM Serif Display', serif;
-      font-size: 0.95rem;
-      color: var(--black);
+      font-size: 0.88rem; color: var(--black);
     }
-
     .footer-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 3px;
     }
-
     .footer-email {
-      font-size: 0.85rem;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-size: 0.82rem; color: var(--mid);
+      text-decoration: none; transition: color 0.2s;
     }
     .footer-email:hover { color: var(--black); }
-
     .footer-location {
-      font-size: 0.78rem;
-      color: #aaa;
-      letter-spacing: 0.04em;
+      font-size: 0.74rem; color: #aaa; letter-spacing: 0.04em;
     }
 
     /* MOBILE */
     @media (max-width: 680px) {
-      nav { padding: 18px 24px; }
-      .hero { padding: 100px 24px 60px; }
-      .ventures { padding: 0 24px 80px; }
+      nav { padding: 12px 20px; }
+      .hero { padding: 90px 20px 44px; }
+      .ventures { padding: 0 20px 60px; }
       .venture-grid { grid-template-columns: 1fr; }
-      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
       .footer-right { align-items: flex-start; }
     }
   </style>
@@ -233,43 +198,51 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-logo">Moe & Bros Enterprises</a>
+    <a href="#" class="nav-logo">
+      <img src="./mb-logo.png" alt="M&B" />
+      <span class="nav-logo-text">Moe & Bros Enterprises</span>
+    </a>
     <a href="mailto:support@moebrosenterprises.com" class="nav-contact">Contact</a>
   </nav>
 
   <section class="hero">
-    <p class="hero-eyebrow">Toledo, Ohio · Est. 2024</p>
-    <h1 class="hero-brand">Moe & Bros<br>Enterprises.</h1>
-    <p class="hero-sub">A Toledo-based company building products and spaces for the people who keep communities running.</p>
+    <p class="hero-eyebrow">Ohio · Host Company</p>
+    <h1>Moe & Bros<br>Enterprises.</h1>
+    <div class="divider"></div>
+    <p class="hero-sub">An Ohio-based company building products and spaces for the people who keep communities running.</p>
   </section>
-
-  <div class="divider" style="margin-left:48px;"></div>
 
   <section class="ventures">
     <p class="section-label">Our Ventures</p>
     <div class="venture-grid">
 
-      <a class="venture-card" href="https://offunit.app" target="_blank" rel="noopener">
-        <span class="venture-tag">App Development</span>
+      <a class="venture-card venture-card-offunit" href="https://offunit.app" target="_blank" rel="noopener">
+        <div class="venture-card-header">
+          <span class="venture-tag">App Development</span>
+          <img src="./offunit-logo.png" alt="OFFUNIT" class="venture-card-logo" />
+        </div>
         <h2>OFFUNIT</h2>
-        <p>A social, dating, and networking app built exclusively for nurses — covering dating, friendships, career growth, and community. Currently in development, launching soon.</p>
+        <p>A social, dating, and networking app built exclusively for nurses — covering dating, friendships, career growth, and community. Launching soon.</p>
         <span class="venture-arrow">Visit offunit.app</span>
       </a>
 
-      <div class="venture-card" style="cursor:default;">
+      <div class="venture-card venture-card-static">
         <span class="venture-tag">Real Estate</span>
         <h2>Short-Term Rentals</h2>
-        <p>Fully furnished accommodations in Toledo, Ohio — designed for travel nurses, medical professionals, and insurance relocation placements.</p>
+        <p>Fully furnished accommodations in Ohio — designed for travel nurses, medical professionals, and insurance relocation placements.</p>
       </div>
 
     </div>
   </section>
 
   <footer>
-    <span class="footer-name">Moe & Bros Enterprises, LLC</span>
+    <div class="footer-left">
+      <img src="./mb-logo.png" alt="M&B" class="footer-logo" />
+      <span class="footer-name">Moe & Bros Enterprises, LLC</span>
+    </div>
     <div class="footer-right">
       <a href="mailto:support@moebrosenterprises.com" class="footer-email">support@moebrosenterprises.com</a>
-      <span class="footer-location">Toledo, Ohio · USA</span>
+      <span class="footer-location">Ohio, USA</span>
     </div>
   </footer>
 
