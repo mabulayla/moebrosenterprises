@@ -9,11 +9,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:   #0e0e0e;
-      --white:   #f9f9f7;
-      --accent:  #c8a96e;
-      --mid:     #5a5a5a;
-      --border:  #e2e2dd;
+      --black:     #0e0e0e;
+      --white:     #f9f9f7;
+      --accent:    #c8a96e;
+      --mid:       #5a5a5a;
+      --border:    #e2e2dd;
       --ou-purple: #5858C8;
       --ou-bg:     #EDEAFF;
       --ou-border: rgba(88,88,200,0.28);
@@ -27,6 +27,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 16px;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* NAV */
@@ -35,7 +36,7 @@
       top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 14px 48px;
-      background: rgba(249,249,247,0.95);
+      background: rgba(249,249,247,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -44,17 +45,15 @@
       text-decoration: none;
     }
     .nav-logo img {
-      height: 38px; width: 38px;
-      border-radius: 50%;
-      object-fit: cover;
+      height: 36px; width: 36px;
+      border-radius: 50%; object-fit: cover;
     }
     .nav-logo-text {
       font-family: 'DM Serif Display', serif;
-      font-size: 1rem; letter-spacing: 0.01em;
-      color: var(--black);
+      font-size: 1rem; color: var(--black);
     }
     .nav-contact {
-      font-size: 0.82rem; font-weight: 600;
+      font-size: 0.8rem; font-weight: 600;
       color: var(--mid); text-decoration: none;
       letter-spacing: 0.06em; text-transform: uppercase;
       transition: color 0.2s;
@@ -63,28 +62,23 @@
 
     /* HERO */
     .hero {
-      padding: 120px 48px 56px;
+      padding: 130px 48px 60px;
       max-width: 860px;
-      display: flex; flex-direction: column; gap: 20px;
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent);
     }
     .hero h1 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(3rem, 7vw, 6rem);
       line-height: 1.0; color: var(--black);
-    }
-    .hero-sub {
-      font-size: 1rem; color: var(--mid);
-      max-width: 420px; line-height: 1.8;
+      margin-bottom: 20px;
     }
     .divider {
       width: 40px; height: 1px;
       background: var(--accent);
-      margin: 4px 0;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 1rem; color: var(--mid);
+      max-width: 400px; line-height: 1.8;
     }
 
     /* VENTURES */
@@ -92,42 +86,44 @@
     .section-label {
       font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 24px;
+      color: var(--mid); margin-bottom: 20px;
     }
     .venture-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       border: 1px solid var(--border);
     }
+
+    /* BASE CARD */
     .venture-card {
       padding: 40px 36px;
       border: 1px solid var(--border);
       background: var(--white);
-      transition: background 0.2s;
-      text-decoration: none; color: inherit; display: block;
     }
-    .venture-card:hover { background: #f0efe9; }
+    .venture-card-link {
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .venture-card-link:hover { background: #f0efe9; }
     .venture-card-static { cursor: default; }
-    .venture-card-static:hover { background: var(--white); }
 
-    /* OFFUNIT card */
+    /* OFFUNIT CARD */
     .venture-card-offunit {
       background: var(--ou-bg);
       border-color: var(--ou-border);
+      transition: background 0.2s;
     }
     .venture-card-offunit:hover { background: #e4e0ff; }
     .venture-card-offunit .venture-tag {
       color: var(--ou-purple); border-color: var(--ou-purple);
     }
     .venture-card-offunit h2 { color: var(--ou-purple); }
-    .venture-card-offunit .venture-arrow { color: var(--ou-purple); }
 
     .venture-card-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 14px;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 16px;
     }
     .venture-card-logo {
-      height: 72px; width: 72px;
-      object-fit: contain;
+      height: 68px; width: 68px; object-fit: contain; flex-shrink: 0;
     }
 
     .venture-tag {
@@ -136,7 +132,6 @@
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--accent); border: 1px solid var(--accent);
       padding: 3px 9px; border-radius: 2px;
-      margin-bottom: 16px;
     }
     .venture-card h2 {
       font-family: 'DM Serif Display', serif;
@@ -145,24 +140,24 @@
     .venture-card p {
       font-size: 0.92rem; color: var(--mid); line-height: 1.72;
     }
+
     .venture-links {
       display: flex; align-items: center; gap: 20px;
-      margin-top: 20px; flex-wrap: wrap;
+      margin-top: 22px; flex-wrap: wrap;
     }
-    .venture-arrow {
-      display: inline-block;
+    .venture-cta {
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--black);
+      color: var(--ou-purple); text-decoration: none;
+      transition: opacity 0.2s;
     }
-    .venture-arrow::after { content: ' →'; }
+    .venture-cta::after { content: ' →'; }
+    .venture-cta:hover { opacity: 0.7; }
     .venture-contact {
-      font-size: 0.82rem; color: var(--mid);
-      text-decoration: none; transition: color 0.2s;
+      font-size: 0.82rem; color: var(--ou-purple);
+      opacity: 0.65; text-decoration: none; transition: opacity 0.2s;
     }
-    .venture-contact:hover { color: var(--ou-purple); }
-    .venture-card-offunit .venture-contact { color: var(--ou-purple); opacity: 0.75; }
-    .venture-card-offunit .venture-contact:hover { opacity: 1; }
+    .venture-contact:hover { opacity: 1; }
 
     /* FOOTER */
     footer {
@@ -175,8 +170,8 @@
       display: flex; align-items: center; gap: 10px;
     }
     .footer-logo {
-      height: 28px; width: 28px;
-      border-radius: 50%; object-fit: cover; opacity: 0.8;
+      height: 26px; width: 26px;
+      border-radius: 50%; object-fit: cover; opacity: 0.75;
     }
     .footer-name {
       font-family: 'DM Serif Display', serif;
@@ -191,13 +186,14 @@
     }
     .footer-email:hover { color: var(--black); }
     .footer-location {
-      font-size: 0.74rem; color: #aaa; letter-spacing: 0.04em;
+      font-size: 0.72rem; color: #bbb; letter-spacing: 0.04em;
     }
 
     /* MOBILE */
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       nav { padding: 12px 20px; }
-      .hero { padding: 90px 20px 44px; }
+      .nav-logo-text { display: none; }
+      .hero { padding: 96px 20px 48px; }
       .ventures { padding: 0 20px 60px; }
       .venture-grid { grid-template-columns: 1fr; }
       footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
@@ -216,17 +212,16 @@
   </nav>
 
   <section class="hero">
-    <p class="hero-eyebrow">Ohio · Host Company</p>
     <h1>Moe & Bros<br>Enterprises.</h1>
     <div class="divider"></div>
-    <p class="hero-sub">An Ohio-based company building products and spaces for the people who keep communities running.</p>
+    <p class="hero-sub">Ohio-based. App development, real estate, and ventures built to last.</p>
   </section>
 
   <section class="ventures">
     <p class="section-label">Our Ventures</p>
     <div class="venture-grid">
 
-      <a class="venture-card venture-card-offunit" href="https://offunit.app" target="_blank" rel="noopener">
+      <div class="venture-card venture-card-offunit venture-card-link" onclick="window.open('https://offunit.app','_blank')" role="link" tabindex="0">
         <div class="venture-card-header">
           <span class="venture-tag">App Development</span>
           <img src="./offunit-icon.png" alt="OFFUNIT" class="venture-card-logo" />
@@ -234,15 +229,15 @@
         <h2>OFFUNIT</h2>
         <p>A social, dating, and networking app built exclusively for nurses — covering dating, friendships, career growth, and community. Launching soon.</p>
         <div class="venture-links">
-          <span class="venture-arrow">Visit offunit.app</span>
+          <a href="https://offunit.app" target="_blank" rel="noopener" class="venture-cta" onclick="event.stopPropagation()">Visit offunit.app</a>
           <a href="mailto:contact@offunit.app" class="venture-contact" onclick="event.stopPropagation()">Questions? contact@offunit.app</a>
         </div>
-      </a>
+      </div>
 
       <div class="venture-card venture-card-static">
         <span class="venture-tag">Real Estate</span>
         <h2>Short-Term Rentals</h2>
-        <p>Fully furnished accommodations in Ohio — designed for travel nurses, medical professionals, and insurance relocation placements.</p>
+        <p>Fully furnished accommodations across Ohio — designed for travel nurses, medical professionals, and insurance relocation placements.</p>
       </div>
 
     </div>
