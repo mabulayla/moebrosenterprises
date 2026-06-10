@@ -126,9 +126,8 @@
       margin-bottom: 14px;
     }
     .venture-card-logo {
-      height: 52px; width: 52px;
-      border-radius: 12px;
-      object-fit: cover;
+      height: 72px; width: 72px;
+      object-fit: contain;
     }
 
     .venture-tag {
@@ -146,13 +145,24 @@
     .venture-card p {
       font-size: 0.92rem; color: var(--mid); line-height: 1.72;
     }
+    .venture-links {
+      display: flex; align-items: center; gap: 20px;
+      margin-top: 20px; flex-wrap: wrap;
+    }
     .venture-arrow {
-      display: inline-block; margin-top: 20px;
+      display: inline-block;
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--black);
     }
     .venture-arrow::after { content: ' →'; }
+    .venture-contact {
+      font-size: 0.82rem; color: var(--mid);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .venture-contact:hover { color: var(--ou-purple); }
+    .venture-card-offunit .venture-contact { color: var(--ou-purple); opacity: 0.75; }
+    .venture-card-offunit .venture-contact:hover { opacity: 1; }
 
     /* FOOTER */
     footer {
@@ -219,11 +229,14 @@
       <a class="venture-card venture-card-offunit" href="https://offunit.app" target="_blank" rel="noopener">
         <div class="venture-card-header">
           <span class="venture-tag">App Development</span>
-          <img src="./offunit-logo.png" alt="OFFUNIT" class="venture-card-logo" />
+          <img src="./offunit-icon.png" alt="OFFUNIT" class="venture-card-logo" />
         </div>
         <h2>OFFUNIT</h2>
         <p>A social, dating, and networking app built exclusively for nurses — covering dating, friendships, career growth, and community. Launching soon.</p>
-        <span class="venture-arrow">Visit offunit.app</span>
+        <div class="venture-links">
+          <span class="venture-arrow">Visit offunit.app</span>
+          <a href="mailto:contact@offunit.app" class="venture-contact" onclick="event.stopPropagation()">Questions? contact@offunit.app</a>
+        </div>
       </a>
 
       <div class="venture-card venture-card-static">
