@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moe & Bros Enterprises, LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0e0e0e;
+      --white: #f9f9f7;
+      --accent: #c8a96e;
+      --mid: #5a5a5a;
+      --border: #e2e2dd;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(249,249,247,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-contact {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-contact:hover { color: var(--black); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .hero-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      line-height: 1.0;
+      color: var(--black);
+      margin-bottom: 32px;
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 480px;
+      line-height: 1.75;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin: 60px 0;
+    }
+
+    /* VENTURES */
+    .ventures {
+      padding: 0 48px 120px;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 48px;
+    }
+
+    .venture-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1px solid var(--border);
+    }
+
+    .venture-card {
+      padding: 48px 40px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: background 0.25s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .venture-card:hover { background: #f0efe9; }
+
+    .venture-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .venture-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .venture-card p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .venture-arrow {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .venture-arrow::after {
+      content: ' →';
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      color: var(--black);
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .footer-email {
+      font-size: 0.85rem;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-email:hover { color: var(--black); }
+
+    .footer-location {
+      font-size: 0.78rem;
+      color: #aaa;
+      letter-spacing: 0.04em;
+    }
+
+    /* MOBILE */
+    @media (max-width: 680px) {
+      nav { padding: 18px 24px; }
+      .hero { padding: 100px 24px 60px; }
+      .ventures { padding: 0 24px 80px; }
+      .venture-grid { grid-template-columns: 1fr; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-right { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">M&B Enterprises</a>
+    <a href="mailto:support@moebrosenterprises.com" class="nav-contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero-brand">Moe & Bros<br>Enterprises.</h1>
+    <p class="hero-sub">A Toledo-based company operating in app development and real estate.</p>
+  </section>
+
+  <section class="ventures">
+    <p class="section-label">Our Ventures</p>
+    <div class="venture-grid">
+
+      <a class="venture-card" href="https://offunit.app" target="_blank" rel="noopener">
+        <h2>OffUnit</h2>
+        <p>A social, dating, and networking app built exclusively for nurses — covering dating, friendships, career growth, and community. Currently in development, launching soon.</p>
+        <span class="venture-arrow">Visit offunit.app</span>
+      </a>
+
+      <div class="venture-card" style="cursor:default;">
+        <h2>Short-Term Rentals</h2>
+        <p>Fully furnished accommodations in Toledo, Ohio — designed for travel nurses, medical professionals, and insurance relocation placements.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-name">Moe & Bros Enterprises, LLC</span>
+    <div class="footer-right">
+      <a href="mailto:support@moebrosenterprises.com" class="footer-email">support@moebrosenterprises.com</a>
+      <span class="footer-location">Toledo, Ohio · USA</span>
+    </div>
+  </footer>
+
+</body>
+</html>
